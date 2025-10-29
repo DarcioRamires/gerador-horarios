@@ -1,16 +1,12 @@
-# Gerador de Horários de Aula
+# Horário Escolar BRC
 
-Um sistema web simples para geração e controle de horários escolares.
+Site gerador de horários escolares estilo URÂNIA — pronto para publicar no GitHub Pages.
 
-## 🚀 Recursos
-- Geração e impressão de horários por disciplina, turma e professor.
-- Separação por períodos (manhã, tarde, noite).
-- Controle de intervalos, conflitos e disponibilidade.
-- Interface moderna e responsiva.
+## Como usar
+- Abra `index.html` em um servidor estático (GitHub Pages funciona).
+- Cadastre escolas, professores, turmas, disciplinas.
+- Adicione aulas (simples ou duplas), defina ambiente e restrições.
+- Use Backup para exportar/importar dados (JSON).
+- Use botão Imprimir para gerar relatórios.
 
-## 🧩 Estrutura
-- **index.html**: Página principal.
-- **style.css**: Design e layout.
-- **script.js**: Funcionalidades interativas.
-
-Desenvolvido por **Dárcio Ramires de Lima**. Licença Livre.
+Desenvolvido por Dárcio Ramires de Lima — Licença Livre.

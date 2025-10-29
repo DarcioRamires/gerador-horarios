@@ -1,70 +1,24 @@
-body {
-  font-family: 'Segoe UI', Tahoma, sans-serif;
-  margin: 0;
-  background: #f3f5f7;
-  color: #333;
+:root{
+  --bg:#f3f5f7; --card:#fff; --accent:#2b7a78; --btn:#3aafa9;
 }
-
-header {
-  background: #2b7a78;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-header .logo {
-  width: 70px;
-  vertical-align: middle;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin: 20px;
-}
-
-button {
-  background: #3aafa9;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #2b7a78;
-}
-
-section {
-  background: white;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #17252a;
-  color: white;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-th {
-  background: #def2f1;
-}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;background:var(--bg);color:#222}
+header{background:var(--accent);color:#fff;padding:18px;text-align:center;display:flex;gap:10px;align-items:center;justify-content:center}
+header .logo{width:48px;height:48px;object-fit:contain;border-radius:6px}
+main{padding:16px}
+.menu-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.menu-grid button{background:var(--btn);border:none;color:white;padding:10px;border-radius:8px;cursor:pointer}
+.controls{display:flex;gap:16px;flex-wrap:wrap}
+.controls .col{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06);flex:1;min-width:260px}
+.controls label{display:block;margin-top:8px;font-weight:600}
+.controls input,.controls select{width:100%;padding:8px;margin-top:6px;border-radius:6px;border:1px solid #ddd}
+.controls button{margin-top:10px;background:var(--accent);color:#fff;padding:8px 10px;border:none;border-radius:6px;cursor:pointer}
+.views{margin-top:18px;background:var(--card);padding:12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.grade-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.grade-buttons button{background:#6ab7b0;border:none;color:#fff;padding:8px;border-radius:6px;cursor:pointer}
+#grades-area{overflow:auto}
+.table-grade{width:100%;border-collapse:collapse}
+.table-grade th,.table-grade td{border:1px solid #e5e7eb;padding:6px;text-align:center}
+.legend{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.legend .item{padding:6px 8px;border-radius:6px;color:#fff;font-weight:600}
+footer{padding:12px;text-align:center;background:#17252a;color:#fff;margin-top:16px}

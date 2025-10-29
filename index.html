@@ -1,94 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerador de Horários de Aula</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Horário Escolar BRC</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="Logo da Escola" class="logo">
-    <h1>Gerador de Horários de Aula</h1>
-  </header>
+<header>
+  <img src="assets/logo.png" alt="logo" class="logo">
+  <h1>Horário Escolar BRC</h1>
+</header>
 
-  <main>
-    <section id="menu">
-      <h2>Menu Principal</h2>
-      <div class="menu-grid">
-        <button onclick="salvarHorario()">Salvar</button>
-        <button onclick="imprimirHorarios()">Imprimir</button>
-        <button onclick="analiseDisponibilidade()">Disponibilidade</button>
-        <button onclick="analiseConflitos()">Conflitos</button>
-        <button onclick="horarioExperimental()">Experimental</button>
-        <button onclick="copiaSeguranca()">Backup</button>
-        <button onclick="divulgarHorario()">Divulgar</button>
-        <button onclick="mudarEquipamento()">Equipamento</button>
-        <button onclick="integracao()">Integração</button>
-        <button onclick="verificarHorario()">Verificar</button>
-        <button onclick="duplicarHorario()">Duplicar</button>
-        <button onclick="eliminarHorario()">Excluir</button>
-      </div>
-    </section>
+<main>
+  <section class="menu">
+    <div class="menu-grid">
+      <button id="btn-salvar">Salvar</button>
+      <button id="btn-imprimir">Imprimir Horário</button>
+      <button id="btn-analise-disponibilidade">Análise Disponibilidade</button>
+      <button id="btn-analise-conflitos">Análise Conflitos</button>
+      <button id="btn-experimental">Horário Experimental</button>
+      <button id="btn-backup">Cópia de Segurança (Export)</button>
+      <button id="btn-restore">Restaurar Backup (Import)</button>
+      <button id="btn-divulgar">Divulgar Horário</button>
+      <button id="btn-integracao">Integração</button>
+      <button id="btn-verificar">Verificar Horário</button>
+      <button id="btn-duplicar">Duplicar Horário</button>
+      <button id="btn-eliminar">Eliminar Horário</button>
+    </div>
+  </section>
 
-    <section id="disciplina">
-      <h2>Escolha a Disciplina</h2>
-      <select id="disciplinaSelect">
-        <option disabled selected>Selecione a Disciplina</option>
-        <option>Artes</option>
-        <option>Educação Física</option>
-        <option>Filosofia</option>
-        <option>Sociologia</option>
-        <option>Inglês</option>
-        <option>Física</option>
-        <option>Química</option>
-        <option>Biologia</option>
-        <option>Geografia</option>
-        <option>História</option>
-        <option>Matemática</option>
-        <option>Matemática e suas Tecnologias</option>
-        <option>Linguagens e suas Tecnologias</option>
-        <option>Ciências Humanas e Sociais Aplicadas</option>
-        <option>Ciências da Natureza e suas Tecnologias</option>
+  <section class="controls">
+    <div class="col">
+      <h2>Cadastros</h2>
+      <label>Adicionar Escola</label>
+      <input id="input-escola" placeholder="Nome da escola">
+      <button id="btn-add-escola">Adicionar Escola</button>
+
+      <label>Adicionar Professor</label>
+      <input id="input-professor" placeholder="Nome do professor">
+      <button id="btn-add-professor">Adicionar Professor</button>
+
+      <label>Adicionar Turma</label>
+      <input id="input-turma" placeholder="Ex: 1A, 2B">
+      <button id="btn-add-turma">Adicionar Turma</button>
+
+      <label>Adicionar Disciplina</label>
+      <input id="input-disciplina" placeholder="Nome da disciplina">
+      <button id="btn-add-disciplina">Adicionar Disciplina</button>
+    </div>
+
+    <div class="col">
+      <h2>Adicionar Aula</h2>
+      <label>Escola</label>
+      <select id="select-escola"></select>
+
+      <label>Turma</label>
+      <select id="select-turma"></select>
+
+      <label>Disciplina</label>
+      <select id="select-disciplina"></select>
+
+      <label>Professor</label>
+      <select id="select-professor"></select>
+
+      <label>Ambiente (sala/lab/quadra)</label>
+      <input id="input-ambiente" placeholder="Sala 101">
+
+      <label>Dia</label>
+      <select id="select-dia">
+        <option>Segunda</option>
+        <option>Terça</option>
+        <option>Quarta</option>
+        <option>Quinta</option>
+        <option>Sexta</option>
       </select>
-    </section>
 
-    <section id="periodos">
-      <h2>Opções de Período</h2>
-      <div class="periodos">
-        <button onclick="definirPeriodo('manha')">Manhã (até 7 aulas)</button>
-        <button onclick="definirPeriodo('tarde')">Tarde (até 7 aulas)</button>
-        <button onclick="definirPeriodo('noite')">Noite (até 5 aulas)</button>
-      </div>
-    </section>
+      <label>Período</label>
+      <select id="select-periodo">
+        <option value="manha">Manhã</option>
+        <option value="tarde">Tarde</option>
+        <option value="noite">Noite</option>
+      </select>
 
-    <section id="grade">
-      <h2>Grade Semanal</h2>
-      <div class="grade-buttons">
-        <button onclick="mostrarGrade('professores')">Professores</button>
-        <button onclick="mostrarGrade('turmas')">Turmas</button>
-        <button onclick="mostrarGrade('disciplinas')">Disciplinas</button>
-      </div>
-      <table id="tabela-grade">
-        <thead>
-          <tr>
-            <th>Horário</th>
-            <th>Segunda</th>
-            <th>Terça</th>
-            <th>Quarta</th>
-            <th>Quinta</th>
-            <th>Sexta</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </section>
-  </main>
+      <label>Hora (slot 1..5)</label>
+      <select id="select-slot">
+        <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+      </select>
 
-  <footer>
-    <p>Desenvolvido por <strong>Dárcio Ramires de Lima</strong> | Licença Livre</p>
-  </footer>
+      <label>Tipo de aula</label>
+      <select id="select-tipo">
+        <option value="1">Simples (1)</option>
+        <option value="2">Dupla (2 consecutivos)</option>
+      </select>
 
-  <script src="script.js"></script>
+      <label>Intervalos hoje (0..3)</label>
+      <select id="select-intervalos">
+        <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
+      </select>
+
+      <button id="btn-add-aula">Adicionar Aula</button>
+    </div>
+  </section>
+
+  <section class="views">
+    <h2>Grades e Relatórios</h2>
+    <div class="grade-buttons">
+      <button onclick="renderGrade('turma')">Grade por Turma</button>
+      <button onclick="renderGrade('turma-rel')">Relatório (grade) por Turma</button>
+      <button onclick="renderGrade('disciplina')">Relatório por Disciplina</button>
+      <button onclick="renderGrade('professor-dia')">Grade de Professores por Dia</button>
+      <button onclick="renderGrade('professor')">Grade de Professores</button>
+    </div>
+
+    <div id="grades-area"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Horário Escolar BRC — Desenvolvido por Dárcio Ramires de Lima — Licença Livre</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
