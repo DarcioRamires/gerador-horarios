@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Horários de Aula</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Logo da Escola" class="logo">
+    <h1>Gerador de Horários de Aula</h1>
+  </header>
+
+  <main>
+    <section id="menu">
+      <h2>Menu Principal</h2>
+      <div class="menu-grid">
+        <button onclick="salvarHorario()">Salvar</button>
+        <button onclick="imprimirHorarios()">Imprimir</button>
+        <button onclick="analiseDisponibilidade()">Disponibilidade</button>
+        <button onclick="analiseConflitos()">Conflitos</button>
+        <button onclick="horarioExperimental()">Experimental</button>
+        <button onclick="copiaSeguranca()">Backup</button>
+        <button onclick="divulgarHorario()">Divulgar</button>
+        <button onclick="mudarEquipamento()">Equipamento</button>
+        <button onclick="integracao()">Integração</button>
+        <button onclick="verificarHorario()">Verificar</button>
+        <button onclick="duplicarHorario()">Duplicar</button>
+        <button onclick="eliminarHorario()">Excluir</button>
+      </div>
+    </section>
+
+    <section id="disciplina">
+      <h2>Escolha a Disciplina</h2>
+      <select id="disciplinaSelect">
+        <option disabled selected>Selecione a Disciplina</option>
+        <option>Artes</option>
+        <option>Educação Física</option>
+        <option>Filosofia</option>
+        <option>Sociologia</option>
+        <option>Inglês</option>
+        <option>Física</option>
+        <option>Química</option>
+        <option>Biologia</option>
+        <option>Geografia</option>
+        <option>História</option>
+        <option>Matemática</option>
+        <option>Matemática e suas Tecnologias</option>
+        <option>Linguagens e suas Tecnologias</option>
+        <option>Ciências Humanas e Sociais Aplicadas</option>
+        <option>Ciências da Natureza e suas Tecnologias</option>
+      </select>
+    </section>
+
+    <section id="periodos">
+      <h2>Opções de Período</h2>
+      <div class="periodos">
+        <button onclick="definirPeriodo('manha')">Manhã (até 7 aulas)</button>
+        <button onclick="definirPeriodo('tarde')">Tarde (até 7 aulas)</button>
+        <button onclick="definirPeriodo('noite')">Noite (até 5 aulas)</button>
+      </div>
+    </section>
+
+    <section id="grade">
+      <h2>Grade Semanal</h2>
+      <div class="grade-buttons">
+        <button onclick="mostrarGrade('professores')">Professores</button>
+        <button onclick="mostrarGrade('turmas')">Turmas</button>
+        <button onclick="mostrarGrade('disciplinas')">Disciplinas</button>
+      </div>
+      <table id="tabela-grade">
+        <thead>
+          <tr>
+            <th>Horário</th>
+            <th>Segunda</th>
+            <th>Terça</th>
+            <th>Quarta</th>
+            <th>Quinta</th>
+            <th>Sexta</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por <strong>Dárcio Ramires de Lima</strong> | Licença Livre</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
